@@ -1,7 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
+import testApi from './api/testApi';
 
 function App() {
+
+  useEffect(() => {
+    const fetchVob = async () => {
+      const vobData = await testApi.getAll();
+      console.log(vobData);
+      return vobData;
+    };
+    fetchVob();
+  }, [])
+
   return (
     <div className="App">
       <header className="App-header">
