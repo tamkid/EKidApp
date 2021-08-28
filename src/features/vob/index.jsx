@@ -4,22 +4,20 @@ import NotFound from '../../components/notFound';
 import VobDetailPage from './pages/vobDetailPage';
 import VobListPage from './pages/vobListPage';
 
-VobFeature.propTypes = {
-    
-};
+VobFeature.propTypes = {};
 
 function VobFeature(props) {
-    const match = useRouteMatch();    
+  const match = useRouteMatch();
 
-    return (
-        <div>
-            <Switch>
-                <Route path={match.path} component={VobListPage} exact/>
-                <Route path={`${match.path}/:vobId`} component={VobDetailPage} exact/>
-                <Route component={NotFound} />
-            </Switch>
-        </div>
-    );
+  return (
+    <div>
+      <Switch>
+        <Route path={match.path} component={VobListPage} exact />
+        <Route path={`${match.path}/:vobId`} component={VobDetailPage} exact />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  );
 }
 
 export default VobFeature;

@@ -6,7 +6,6 @@ import TodoFeature from './features/todo';
 import VobFeature from './features/vob';
 
 function App() {
-
   return (
     <div className="App">
       <nav>
@@ -24,7 +23,7 @@ function App() {
       </nav>
 
       <Switch>
-        <Route path="/" component={HomeFeature} exact/>
+        <Route path="/" component={HomeFeature} exact />
         <Route path="/vobs" component={VobFeature} />
         <Route path="/todos" component={TodoFeature} />
         <Route component={NotFound} />
