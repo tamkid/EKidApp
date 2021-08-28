@@ -1,35 +1,34 @@
-import logo from './logo.svg';
+import { Link, Route, Switch } from 'react-router-dom';
 import './App.css';
-import { useEffect } from 'react';
-import testApi from './api/testApi';
+import NotFound from './components/notFound';
+import HomeFeature from './features/home';
+import TodoFeature from './features/todo';
+import VobFeature from './features/vob';
 
 function App() {
 
-  useEffect(() => {
-    const fetchVob = async () => {
-      const vobData = await testApi.getAll();
-      console.log(vobData);
-      return vobData;
-    };
-    fetchVob();
-  }, [])
-
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/vobs">Vocabulary</Link>
+          </li>
+          <li>
+            <Link to="/todos">Todo</Link>
+          </li>
+        </ul>
+      </nav>
+
+      <Switch>
+        <Route path="/" component={HomeFeature} exact/>
+        <Route path="/vobs" component={VobFeature} />
+        <Route path="/todos" component={TodoFeature} />
+        <Route component={NotFound} />
+      </Switch>
     </div>
   );
 }
