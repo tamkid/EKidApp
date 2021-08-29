@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 const axiosClient = axios.create({
-  //baseURL: "http://ekidapi.somee.com",
-  baseURL: 'https://localhost:44393/',
+  baseURL: 'http://ekidapi.somee.com',
+  //baseURL: 'https://localhost:44393/',
   crossorigin: true,
   headers: {
     'Access-Control-Allow-Origin': '*',
